@@ -1,9 +1,13 @@
-FROM ubuntu:18.04
+FROM docker.io/library/ubuntu:18.04
 
-LABEL name="httpbin"
-LABEL version="0.9.2"
-LABEL description="A simple HTTP service."
-LABEL org.kennethreitz.vendor="Kenneth Reitz"
+LABEL org.opencontainers.image.title = "httpbin" \
+      org.opencontainers.image.description "A simple HTTP service." \
+      org.opencontainers.image.authors = "Kenneth Reitz, Phil Huang <phil.huang@microsoft.com>" \
+      org.opencontainers.image.source = "https://github.com/pichuang/httpbin" \
+      org.opencontainers.image.licenses = "ISC License" \
+      org.opencontainers.image.url = "https://httpbin.org" \
+      org.opencontainers.image.version = "20230721" \
+      org.opencontainers.image.base.name = "library/ubuntu:22.04" \
 
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
