@@ -1,5 +1,5 @@
 {
-  "name": "httpbin",
+  "name": "httpbin-ng",
   "description": "HTTP Request & Response Service, written in Python + Flask.",
   "repository": "https://github.com/requests/httpbin",
   "website": "https://httpbin.org",

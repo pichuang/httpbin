@@ -16,20 +16,19 @@ setup(
     url='https://github.com/requests/httpbin',
 
     # Author details
-    author='Kenneth Reitz',
-    author_email='me@kennethreitz.org',
+    author='Kenneth Reitz, Phil Huang',
+    author_email='me@kennethreitz.org, phil.huang@microsoft.com',
 
     # Choose your license
-    license='MIT',
+    license='ISC',
 
     classifiers=[
          'Development Status :: 5 - Production/Stable',
          'Intended Audience :: Developers',
          'Natural Language :: English',
-         'License :: OSI Approved :: MIT License',
+         'License :: OSI Approved :: ISC License (ISCL)',
          'Programming Language :: Python',
-         'Programming Language :: Python :: 2.7',
-         'Programming Language :: Python :: 3.6',
+         'Programming Language :: Python :: 3.10',
     ],
     test_suite="test_httpbin",
     packages=find_packages(),

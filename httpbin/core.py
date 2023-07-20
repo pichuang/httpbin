@@ -29,7 +29,7 @@ from flask import (
 from six.moves import range as xrange
 from werkzeug.datastructures import WWWAuthenticate, MultiDict
 from werkzeug.http import http_date
-from werkzeug.wrappers import BaseResponse
+from werkzeug.wrappers import Response
 from werkzeug.http import parse_authorization_header
 from flasgger import Swagger, NO_SANITIZER
 
@@ -77,7 +77,7 @@ def jsonify(*args, **kwargs):
 
 
 # Prevent WSGI from correcting the casing of the Location header
-BaseResponse.autocorrect_location_header = False
+Response.autocorrect_location_header = False
 
 # Find the correct template folder when running from a different location
 tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates")
@@ -96,7 +96,7 @@ template = {
         "title": "httpbin.org",
         "description": (
             "A simple HTTP Request & Response Service."
-            "<br/> <br/> <b>Run locally: </b> <code>$ docker run -p 80:80 kennethreitz/httpbin</code>"
+            "<br/> <br/> <b>Run locally: </b> <code>$ docker run -p 8080:80 ghcr.io/pichuang/httpbin:master</code>"
         ),
         "contact": {
             "responsibleOrganization": "Kenneth Reitz",
@@ -141,6 +141,13 @@ template = {
         },
     ],
 }
+
+if "SWAGGER_TITLE" in os.environ:
+    template["info"]["title"] = os.environ["SWAGGER_TITLE"]
+
+if "SWAGGER_DESCRIPTION" in os.environ:
+    template["info"]["description"] = os.environ["SWAGGER_DESCRIPTION"]
+
 
 swagger_config = {
     "headers": [],
@@ -1780,7 +1787,7 @@ def a_json_endpoint():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--port", type=int, default=5000)
+    parser.add_argument("--port", type=int, default=8080)
     parser.add_argument("--host", default="127.0.0.1")
     args = parser.parse_args()
     app.run(port=args.port, host=args.host)
