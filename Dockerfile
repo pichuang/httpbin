@@ -13,8 +13,8 @@ RUN apt update -y && \
       apt install python3-pip -y && \
       pip3 install --upgrade pip
 
-ADD . /httpbin
-WORKDIR /httpbin
+ADD . /httpbin-re
+WORKDIR /httpbin-re
 
 # Default values for Swagger
 ARG TITLE="httpbin-re" \
@@ -23,7 +23,7 @@ ENV SWAGGER_TITLE=$TITLE \
     SWAGGER_DESCRIPTION=$DESCRIPTION
 
 RUN pip3 install --no-cache-dir -r requirements.txt && \
-      pip3 install --no-cache-dir /httpbin
+      pip3 install --no-cache-dir /httpbin-re
 
 EXPOSE 80
 

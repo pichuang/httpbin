@@ -1,6 +1,6 @@
 version: '2'
 services:
-    rebuild:
+    re:
       build: '.'
       ports:
         - '8080:80'

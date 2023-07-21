@@ -16,6 +16,17 @@ docker-compose up -d
 
 See http://httpbin.org for more information.
 
+## Major Changelog
+
+- Change
+  - Ubuntu 18.04 -> Ubuntu 22.04
+  - Travis CI -> GitHub Actions
+  - Python 3.6 -> Python 3.10
+  - Pipenv -> built-in pip
+- Add
+  - Provide variables to change TITLE and DESCRIPTION
+  - Follow OCI Specification
+
 ## References
 
 - [httpbin](http://httpbin.org)
