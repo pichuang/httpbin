@@ -1,4 +1,4 @@
 gunicorn>=21.2.0
-Werkzeug>=2.3.6
+Werkzeug==2.2.3
 gevent>=23.7.0
 flasgger>=0.9.7.1

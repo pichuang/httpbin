@@ -96,7 +96,7 @@ template = {
         "title": "httpbin.org",
         "description": (
             "A simple HTTP Request & Response Service."
-            "<br/> <br/> <b>Run locally: </b> <code>$ docker run -p 8080:80 ghcr.io/pichuang/httpbin:master</code>"
+            "<br/> <br/> <b>Run locally: </b> <code>$ docker run -p 8080:80 ghcr.io/pichuang/httpbin-re:master</code>"
         ),
         "contact": {
             "responsibleOrganization": "Kenneth Reitz",
@@ -143,6 +143,7 @@ template = {
 }
 
 if "SWAGGER_TITLE" in os.environ:
+    app.config["SWAGGER"]["title"] = os.environ["SWAGGER_TITLE"]
     template["info"]["title"] = os.environ["SWAGGER_TITLE"]
 
 if "SWAGGER_DESCRIPTION" in os.environ:

@@ -1,0 +1,37 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: httpbin-re
+  namespace: default
+  labels:
+    app: httpbin-re
+spec:
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 80
+  selector:
+    app: httpbin-re
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpbin-re
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: httpbin-re
+  template:
+    metadata:
+      labels:
+        app: httpbin-re
+    spec:
+      containers:
+      - image: ghcr.io/pichuang/httpbin-re:master
+        imagePullPolicy: IfNotPresent
+        name: httpbin-re
+        ports:
+        - containerPort: 80
